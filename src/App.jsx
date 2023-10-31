@@ -4,11 +4,13 @@ import Dashboard from "./pages/Dashboard";
 import UsersPages from "./pages/UsersPages";
 import UserPage from "./pages/UserPage";
 import NotFound from "./pages/NotFound";
+import Menu from "./components/Menu";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
+        <Menu />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<Dashboard />} />

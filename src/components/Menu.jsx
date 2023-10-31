@@ -1,15 +1,32 @@
+import { NavLink } from "react-router-dom";
+import style from "./Menu.module.css";
 const Menu = () => {
   return (
     <div>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <NavLink
+            className={({ isActive }) => (isActive ? style.active : "")}
+            to="/"
+          >
+            Home
+          </NavLink>
         </li>
         <li>
-          <a href="/dashboard">Home</a>
+          <NavLink
+            className={({ isActive }) => (isActive ? style.active : "")}
+            to="/dashboard"
+          >
+            Dashboard
+          </NavLink>
         </li>
         <li>
-          <a href="/users">Home</a>
+          <NavLink
+            className={({ isActive }) => (isActive ? style.active : "")}
+            to="/users"
+          >
+            Users
+          </NavLink>
         </li>
       </ul>
     </div>
