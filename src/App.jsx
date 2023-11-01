@@ -5,19 +5,25 @@ import UsersPages from "./pages/UsersPages";
 import UserPage from "./pages/UserPage";
 import NotFound from "./pages/NotFound";
 import Menu from "./components/Menu";
+import UserProvider from "./context/UserProvider";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Menu />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/users" element={<UsersPages />} />
-          <Route path="/user" element={<UserPage />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
+        <UserProvider>
+          <Menu />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/dashboard/*" element={<Dashboard />}>
+              <Route path="indicadores" element={<p>indicadores</p>} />
+              <Route path="metricas" element={<p>metricas</p>} />
+            </Route>
+            <Route path="/users" element={<UsersPages />} />
+            <Route path="/user/:id" element={<UserPage />} />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+        </UserProvider>
       </BrowserRouter>
     </>
   );
